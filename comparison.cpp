@@ -27,7 +27,7 @@ MatrixXd generate_random_6x6()
 void calculate_condition_with_norms(MatrixXd &m)
 {
   // K = ||A^-1||*||A||
-  (m.inverse()).squaredNorm() * m.squaredNorm();
+  (m.inverse()).norm() * m.norm();
 }
 
 void calculate_condition_with_singular_values(MatrixXd &m)

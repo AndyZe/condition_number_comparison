@@ -14,9 +14,10 @@ MatrixXd generate_random_6x6()
   // define the range
   std::uniform_real_distribution<> distr(-1000, 1000);
   
-  MatrixXd m(6,6);
-  for (int row=0; row<6; ++row)
-  	for (int col=0; col<6; ++col)
+  int size = 2;
+  MatrixXd m(size,size);
+  for (int row=0; row<size; ++row)
+  	for (int col=0; col<size; ++col)
 	{
 		m(row,col) = distr(eng);
 	}
@@ -27,7 +28,7 @@ MatrixXd generate_random_6x6()
 void calculate_condition_with_norms(MatrixXd &m)
 {
   // K = ||m^-1||*||m||
-  std::cout << "Result with norm method: " << (m.inverse()).squaredNorm() * m.squaredNorm() << std::endl;
+  std::cout << "Result with norm method: " << m.inverse().norm() * m.norm() << std::endl;
 }
 
 void calculate_condition_with_singular_values(MatrixXd &m)
